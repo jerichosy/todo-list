@@ -13,6 +13,9 @@ function todosReducer(todos = [], action) {
         //         ...
         //     }))
         // }
+        case "delete": {
+            return todos.filter(todo => todo.id !== action.id);
+        }
         default: throw Error(`Unknown action: ${action.type}`);
     }
 }
@@ -23,6 +26,10 @@ export default function TodoList() {
     function handleAddTodo(title) {
         console.log('handleAddTodo')
         dispatch({ type: 'add', id: crypto.randomUUID(), title });
+    }
+    function handleDeleteTodo(id) {
+        console.log('handleDeleteTodo')
+        dispatch({ type: 'delete', id });
     }
 
     return (
@@ -35,6 +42,7 @@ export default function TodoList() {
                     <li key={todo.id}>
                         <input type="checkbox" checked={todo.done} />
                         <span>{todo.title}</span>
+                        <button type='button' onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
                     </li>
                 ))}
             </ul>
