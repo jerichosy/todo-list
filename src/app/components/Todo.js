@@ -2,7 +2,7 @@
 
 import TodoSub from "./TodoSub";
 
-export default function Todo({ id, title, done, handleDeleteTodo }) {
+export default function Todo({ id, title, done, handleDeleteTodo, handleChangeTodo }) {
     const subTasks = [
         { id: 1, title: 'subtask 1', done: false },
         { id: 2, title: 'subtask 2', done: false }
@@ -10,7 +10,7 @@ export default function Todo({ id, title, done, handleDeleteTodo }) {
 
     return (
         <>
-            <input type="checkbox" checked={done} />
+            <input type="checkbox" checked={done} onChange={e => { handleChangeTodo(id, 'done', e.target.checked) }} />
             <input type="text" value={title} disabled={true} />
             {/* <span>{todo.title}</span> */}
             <button type='button' onClick={() => handleDeleteTodo(id)}>Delete</button>

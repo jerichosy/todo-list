@@ -9,11 +9,15 @@ function todosReducer(todos = [], action) {
         case "add": {
             return [...todos, { id: action.id, title: action.title, done: false }];
         }
-        // case "edit": {
-        //     return todos.map(todo => ({
-        //         ...
-        //     }))
-        // }
+        case "change": {
+            return todos.map(todo => {
+                if (todo.id === action.id) {
+                    return { ...todo, [action.property]: action.newValue };
+                } else {
+                    return todo;
+                }
+            });
+        }
         case "delete": {
             return todos.filter(todo => todo.id !== action.id);
         }
@@ -27,6 +31,10 @@ export default function TodoList() {
     function handleAddTodo(title) {
         console.log('handleAddTodo')
         dispatch({ type: 'add', id: crypto.randomUUID(), title });
+    }
+    function handleChangeTodo(id, property, newValue) {
+        console.log('handleChangeTodo')
+        dispatch({ type: 'change', id, property, newValue });
     }
     function handleDeleteTodo(id) {
         console.log('handleDeleteTodo')
@@ -46,6 +54,7 @@ export default function TodoList() {
                             title={todo.title}
                             done={todo.done}
                             handleDeleteTodo={handleDeleteTodo}
+                            handleChangeTodo={handleChangeTodo}
                         />
                     </li>
                 ))}
