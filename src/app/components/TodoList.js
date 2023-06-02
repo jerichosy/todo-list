@@ -75,7 +75,7 @@ export default function TodoList() {
 
             <h2>Tasks remaining</h2>
             <button type='button' onClick={handleToggleShowCompleted}>
-              {showCompleted ? 'Hide' : 'Show'} Completed Tasks
+                {showCompleted ? 'Hide' : 'Show'} Completed Tasks
             </button>
             <ul>
                 {displayedTodos.map(todo => (
