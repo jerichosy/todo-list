@@ -38,7 +38,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 As a user
 
 - [x] I want to be able to create to-do items so that I'll know the tasks I have to do (use UUIDs for the ID)
-- [ ] I want to be able to complete a to-do item so that I'll know when a task is complete
+- [ ] I want to be able to complete a to-do item so that I'll know when a task is complete (no propagation of completion from main task to sub task or vice versa necessary)
 - [ ] I want to be able to show/hide completed to-do items so that I can decide whether to view only pending tasks, or all tasks
 - [ ] I want to be able to add sub tasks to a to-do so that I can break down a task into smaller tasks (max nesting of only 1 level)
 
