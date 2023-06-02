@@ -41,7 +41,8 @@ export default function TodoList() {
                 {todos.map(todo => (
                     <li key={todo.id}>
                         <input type="checkbox" checked={todo.done} />
-                        <span>{todo.title}</span>
+                        <input type="text" value={todo.title} />
+                        {/* <span>{todo.title}</span> */}
                         <button type='button' onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
                     </li>
                 ))}
