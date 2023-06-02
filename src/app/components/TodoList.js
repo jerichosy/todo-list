@@ -1,6 +1,6 @@
 'use client';
 
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import AddTodo from "./AddTodo";
 import Todo from "./Todo";
 
@@ -41,13 +41,26 @@ export default function TodoList() {
         dispatch({ type: 'delete', id });
     }
 
+
+    const [showCompleted, setShowCompleted] = useState(true);
+
+    function handleToggleShowCompleted() {
+        setShowCompleted(!showCompleted);
+    }
+
+    const displayedTodos = showCompleted ? todos : todos.filter(todo => !todo.done);
+
+
     return (
         <>
             <AddTodo handleAddTodo={handleAddTodo} />
 
             <h2>Tasks remaining</h2>
+            <button type='button' onClick={handleToggleShowCompleted}>
+              {showCompleted ? 'Hide' : 'Show'} Completed Tasks
+            </button>
             <ul>
-                {todos.map(todo => (
+                {displayedTodos.map(todo => (
                     <li key={todo.id}>
                         <Todo
                             id={todo.id}
