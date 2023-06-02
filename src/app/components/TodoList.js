@@ -2,6 +2,7 @@
 
 import { useReducer } from "react";
 import AddTodo from "./AddTodo";
+import Todo from "./Todo";
 
 function todosReducer(todos = [], action) {
     switch (action.type) {
@@ -40,10 +41,12 @@ export default function TodoList() {
             <ul>
                 {todos.map(todo => (
                     <li key={todo.id}>
-                        <input type="checkbox" checked={todo.done} />
-                        <input type="text" value={todo.title} disabled={true}/>
-                        {/* <span>{todo.title}</span> */}
-                        <button type='button' onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
+                        <Todo
+                            id={todo.id}
+                            title={todo.title}
+                            done={todo.done}
+                            handleDeleteTodo={handleDeleteTodo}
+                        />
                     </li>
                 ))}
             </ul>
