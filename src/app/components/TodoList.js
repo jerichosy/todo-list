@@ -71,8 +71,6 @@ export default function TodoList() {
 
     return (
         <>
-            <AddTodo handleAddTodo={handleAddTodo} />
-
             <h2>Tasks remaining</h2>
             <button type='button' onClick={handleToggleShowCompleted}>
                 {showCompleted ? 'Hide' : 'Show'} Completed Tasks
@@ -91,6 +89,7 @@ export default function TodoList() {
                         />
                     </li>
                 ))}
+                <AddTodo handleAddTodo={handleAddTodo} />
             </ul>
         </>
     )

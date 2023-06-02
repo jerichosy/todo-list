@@ -20,11 +20,7 @@ export default function AddTodo( {handleAddTodo} ) {
 
     return (
         <form onSubmit={(e) => { e.preventDefault(); addTodo(); }}>
-            <h2>
-                <label>
-                    Add a TODO
-                </label>
-            </h2>
+            <input type="checkbox" disabled={true} />
             <input
                 type='text'
                 // name='text'
