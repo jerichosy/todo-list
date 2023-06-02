@@ -18,6 +18,15 @@ export default function Todo({ id, title, done, handleDeleteTodo, handleChangeTo
     function handleAddSubTask(title) {
         setSubTasks([...subTasks, { id: crypto.randomUUID(), title, done: false }])
     }
+    function handleChangeSubTask(id, property, newValue) {
+        setSubTasks(subTasks.map(subTask => {
+            if (subTask.id === id) {
+                return { ...subTask, [property]: newValue };
+            } else {
+                return subTask;
+            }
+        }))
+    }
     function handleDeleteSubTask(id) {
         setSubTasks(subTasks.filter(subTask => subTask.id !== id))
     }
@@ -36,6 +45,7 @@ export default function Todo({ id, title, done, handleDeleteTodo, handleChangeTo
                             title={subTask.title}
                             done={subTask.done}
                             handleDeleteSubTask={handleDeleteSubTask}
+                            handleChangeSubTask={handleChangeSubTask}
                         />
                     </li>
                 ))}
