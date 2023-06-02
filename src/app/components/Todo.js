@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import TodoSub from "./TodoSub";
+import AddTodoSub from "./AddTodoSub";
 
 export default function Todo({ id, title, done, handleDeleteTodo, handleChangeTodo }) {
     // const subTasks = [
@@ -14,6 +15,9 @@ export default function Todo({ id, title, done, handleDeleteTodo, handleChangeTo
         { id: 2, title: 'subtask 2', done: false }
     ])
 
+    function handleAddSubTask(title) {
+        setSubTasks([...subTasks, { id: crypto.randomUUID(), title, done: false }])
+    }
     function handleDeleteSubTask(id) {
         setSubTasks(subTasks.filter(subTask => subTask.id !== id))
     }
@@ -35,6 +39,7 @@ export default function Todo({ id, title, done, handleDeleteTodo, handleChangeTo
                         />
                     </li>
                 ))}
+                <AddTodoSub handleAddSubTask={handleAddSubTask} />
             </ul>
         </>
     )
