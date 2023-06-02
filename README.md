@@ -42,4 +42,4 @@ As a user
 - [ ] I want to be able to show/hide completed to-do items so that I can decide whether to view only pending tasks, or all tasks
 - [ ] I want to be able to add sub tasks to a to-do so that I can break down a task into smaller tasks (max nesting of only 1 level)
 
-- [ ] Delete to-do items (if a parent task is deleted, the subtasks are deleted as well)
+- [x] Delete to-do items (both main and sub tasks, if a main task is deleted then its sub tasks are deleted as well)
