@@ -71,7 +71,7 @@ export default function TodoList() {
 
     return (
         <>
-            <h2>Tasks remaining</h2>
+            <h2>{todos.filter(e => !e.done).length} remaining, {todos.filter(e => e.done).length} completed</h2>
             <button type='button' onClick={handleToggleShowCompleted}>
                 {showCompleted ? 'Hide' : 'Show'} Completed Tasks
             </button>
