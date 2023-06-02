@@ -5,14 +5,9 @@ import TodoSub from "./TodoSub";
 import AddTodoSub from "./AddTodoSub";
 
 export default function Todo({ id, title, done, handleDeleteTodo, handleChangeTodo }) {
-    // const subTasks = [
-    //     { id: 1, title: 'subtask 1', done: false },
-    //     { id: 2, title: 'subtask 2', done: false }
-    // ]
-
     const [subTasks, setSubTasks] = useState([
-        { id: 1, title: 'subtask 1', done: false },
-        { id: 2, title: 'subtask 2', done: false }
+        // { id: 1, title: 'subtask 1', done: false },
+        // { id: 2, title: 'subtask 2', done: false }
     ])
 
     function handleAddSubTask(title) {
