@@ -27,6 +27,7 @@ function todosReducer(todos = [], action) {
 
 export default function TodoList() {
     const [todos, dispatch] = useReducer(todosReducer, [])
+    const [subTasks, setSubTasks] = useState([])
 
     function handleAddTodo(title) {
         console.log('handleAddTodo')
@@ -41,6 +42,23 @@ export default function TodoList() {
         dispatch({ type: 'delete', id });
     }
 
+    const subTasksHandler = {
+        handleAddSubTask: (parentId, title) => {
+            setSubTasks([...subTasks, { parentId: parentId, id: crypto.randomUUID(), title, done: false }])
+        },
+        handleChangeSubTask: (id, property, newValue) => {
+            setSubTasks(subTasks.map(subTask => {
+                if (subTask.id === id) {
+                    return { ...subTask, [property]: newValue };
+                } else {
+                    return subTask;
+                }
+            }))
+        },
+        handleDeleteSubTask: (id) => {
+            setSubTasks(subTasks.filter(subTask => subTask.id !== id))
+        }
+    }
 
     const [showCompleted, setShowCompleted] = useState(true);
 
@@ -68,6 +86,8 @@ export default function TodoList() {
                             done={todo.done}
                             handleDeleteTodo={handleDeleteTodo}
                             handleChangeTodo={handleChangeTodo}
+                            subTasks={subTasks.filter(subTask => subTask.parentId === todo.id)}
+                            subTasksHandler={subTasksHandler}
                         />
                     </li>
                 ))}

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function AddTodoSub( {handleAddSubTask} ) {
+export default function AddTodoSub( {parentId, handleAddSubTask} ) {
     const [subToAdd, setSubToAdd] = useState('')
 
     function onChangeHandler(e) {
@@ -13,7 +13,7 @@ export default function AddTodoSub( {handleAddSubTask} ) {
         console.log('addSub')
 
         if (subToAdd.trim()) {
-            handleAddSubTask(subToAdd)
+            handleAddSubTask(parentId, subToAdd)
             setSubToAdd('');  // ? What does this do
         }
     }
