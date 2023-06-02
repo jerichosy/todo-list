@@ -24,6 +24,7 @@ export default function AddTodo( {handleAddTodo} ) {
             <input
                 type='text'
                 // name='text'
+                placeholder="Add a task"
 
                 value={todoToAdd}
                 onChange={onChangeHandler}
