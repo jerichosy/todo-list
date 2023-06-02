@@ -1,12 +1,22 @@
 'use client';
 
+import { useState } from "react";
 import TodoSub from "./TodoSub";
 
 export default function Todo({ id, title, done, handleDeleteTodo, handleChangeTodo }) {
-    const subTasks = [
+    // const subTasks = [
+    //     { id: 1, title: 'subtask 1', done: false },
+    //     { id: 2, title: 'subtask 2', done: false }
+    // ]
+
+    const [subTasks, setSubTasks] = useState([
         { id: 1, title: 'subtask 1', done: false },
         { id: 2, title: 'subtask 2', done: false }
-    ]
+    ])
+
+    function handleDeleteSubTask(id) {
+        setSubTasks(subTasks.filter(subTask => subTask.id !== id))
+    }
 
     return (
         <>
@@ -21,6 +31,7 @@ export default function Todo({ id, title, done, handleDeleteTodo, handleChangeTo
                             id={subTask.id}
                             title={subTask.title}
                             done={subTask.done}
+                            handleDeleteSubTask={handleDeleteSubTask}
                         />
                     </li>
                 ))}
