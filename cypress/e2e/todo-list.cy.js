@@ -17,6 +17,18 @@ describe('template spec', () => {
   it('check a todo', () => {
     cy.addItem(tasks[0])
     cy.get(`[data-test="todo-check-${tasks[0]}"]`).check()
+
+    // assert
     cy.get(`[data-test="todo-check-${tasks[0]}"]`).should('be.checked')
+  })
+
+  it('hide a todo', () => {
+    cy.addItem(tasks[0])
+    cy.get(`[data-test="todo-check-${tasks[0]}"]`).click()
+
+    cy.contains('Hide').click()
+
+    // assert
+    cy.get('li').should('not.exist')
   })
 })
