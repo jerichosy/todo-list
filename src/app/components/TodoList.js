@@ -77,7 +77,7 @@ export default function TodoList() {
             </button>
             <ul>
                 {displayedTodos.map(todo => (
-                    <li key={todo.id}>
+                    <li key={todo.id} data-test={"todo-item"}>
                         <Todo
                             id={todo.id}
                             title={todo.title}

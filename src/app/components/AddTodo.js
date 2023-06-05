@@ -28,9 +28,11 @@ export default function AddTodo( {handleAddTodo} ) {
 
                 value={todoToAdd}
                 onChange={onChangeHandler}
+                data-test='add-todo-input'
             />
             <button
                 type='submit'
+                data-test='add-todo-button'
                 // disabled={todoToAdd.trim() === ""}
             >
                 Add
