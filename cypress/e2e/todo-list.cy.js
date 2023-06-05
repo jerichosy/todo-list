@@ -42,4 +42,13 @@ describe('template spec', () => {
     // assert
     cy.get('li').should('exist')
   })
+
+  it('remove a todo', () => {
+    cy.addItem(tasks[0])
+
+    cy.contains('Delete').click()
+
+    // assert
+    cy.get('li').should('not.exist')
+  })
 })
