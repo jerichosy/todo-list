@@ -7,8 +7,8 @@ import AddTodoSub from "./AddTodoSub";
 export default function Todo({ id, title, done, handleDeleteTodo, handleChangeTodo, subTasks, subTasksHandler }) {
     return (
         <>
-            <input type="checkbox" checked={done} onChange={e => { handleChangeTodo(id, 'done', e.target.checked) }} />
-            <input type="text" value={title} disabled={true} />
+            <input type="checkbox" checked={done} onChange={e => { handleChangeTodo(id, 'done', e.target.checked) }} data-test={`todo-check-${title}`} />
+            <input type="text" value={title} disabled={true} data-test={`todo-val-${title}`}/>
             {/* <span>{todo.title}</span> */}
             <button type='button' onClick={() => handleDeleteTodo(id)}>Delete</button>
             <ul>

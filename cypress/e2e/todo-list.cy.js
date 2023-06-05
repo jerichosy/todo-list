@@ -1,19 +1,22 @@
+import tasks from '../fixtures/tasks.json'
+
 describe('template spec', () => {
   beforeEach(() => {
     cy.visit('localhost:3000')
   })
 
-  it('passes', () => {
-    cy.get('h1').should('exist')
-  })
-
   it('adds a todo', () => {
-    cy.addItem('Walk the cat')
+    cy.addItem(tasks[0])
 
     // assert
-    // cy.get('li').find('input[type=\"text\"]').eq(0).should('have.value', 'Walk the cat')
-    cy.get('[data-test="todo-item"]').should('have.length', 1)
-    cy.get('[data-test="todo-item"]').find('input[type="text"]').should('have.value', 'Walk the cat')
+    cy.get('li').should('have.length', 1)
+    cy.get(`[data-test="todo-val-${tasks[0]}"]`).should('have.value', tasks[0])
     // cy.get('[data-test="todo-item"]').should('contain', 'Walk the cat')
+  })
+
+  it('check a todo', () => {
+    cy.addItem(tasks[0])
+    cy.get(`[data-test="todo-check-${tasks[0]}"]`).check()
+    cy.get(`[data-test="todo-check-${tasks[0]}"]`).should('be.checked')
   })
 })
