@@ -2,7 +2,7 @@ import tasks from '../fixtures/tasks.json'
 
 describe('template spec', () => {
   beforeEach(() => {
-    cy.visit('localhost:3000')
+    cy.visit(Cypress.env('host'))
   })
 
   it('adds a todo', () => {
