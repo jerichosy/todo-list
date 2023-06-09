@@ -1,6 +1,6 @@
 import tasks from '../fixtures/tasks.json'
 
-describe('template spec', () => {
+describe('todo-list', () => {
   beforeEach(() => {
     cy.visit(Cypress.env('host'))
   })
