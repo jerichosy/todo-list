@@ -28,3 +28,8 @@ Cypress.Commands.add('addItem', (task) => {
     cy.get('[data-test="add-todo-input"]').type(task)
     cy.get('[data-test="add-todo-button"]').click()
 })
+
+Cypress.Commands.add('addSubItem', (task) => {
+    cy.get('[data-test="add-sub-input"]').type(task)
+    cy.get('[data-test="add-sub-button"]').click()
+})

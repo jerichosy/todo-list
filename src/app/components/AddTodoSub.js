@@ -21,9 +21,9 @@ export default function AddTodoSub( {parentId, handleAddSubTask} ) {
     return (
         <form onSubmit={(e) => { e.preventDefault(); addSub(); }}>
             <input type="checkbox" disabled={true} />
-            <input type="text" placeholder="Add a subtask" value={subToAdd} disabled={false} onChange={onChangeHandler} />
+            <input type="text" placeholder="Add a subtask" value={subToAdd} disabled={false} onChange={onChangeHandler} data-test='add-sub-input' />
             {/* <span>{todo.title}</span> */}
-            <button type='submit'>Add</button>
+            <button type='submit' data-test='add-sub-button'>Add</button>
         </form>
     )
 }

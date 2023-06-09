@@ -22,6 +22,15 @@ describe('todo-list', () => {
     cy.get(`[data-test="todo-check-${tasks[0]}"]`).should('be.checked')
   })
 
+  it('add a subtask', () => {
+    cy.addItem(tasks[0])
+    cy.addSubItem(tasks[1])
+
+    // assert
+    cy.get('li').should('have.length', 2)
+    cy.get(`[data-test="sub-val-${tasks[1]}"]`).should('have.value', tasks[1])
+  })
+
   it('hide a todo', () => {
     cy.addItem(tasks[0])
     cy.get(`[data-test="todo-check-${tasks[0]}"]`).click()
