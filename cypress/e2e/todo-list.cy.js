@@ -36,8 +36,9 @@ describe('todo-list', () => {
     cy.addItem(tasks[0])
     cy.get(`[data-test="todo-check-${tasks[0]}"]`).click()
 
-    cy.contains('Hide').click()
-    cy.contains('Show').click()
+    let showHideBtn = cy.contains('Hide')
+    showHideBtn.click()
+    showHideBtn.click()
 
     // assert
     cy.get('li').should('exist')
