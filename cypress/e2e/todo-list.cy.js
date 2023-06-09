@@ -56,7 +56,7 @@ describe('todo-list', () => {
   it('remove a todo', () => {
     cy.addItem(tasks[0])
 
-    cy.contains('Delete').click()
+    cy.deleteItem(tasks[0])
 
     // assert
     cy.get('li').should('not.exist')
