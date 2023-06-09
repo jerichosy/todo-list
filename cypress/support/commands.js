@@ -33,3 +33,11 @@ Cypress.Commands.add('addSubItem', (task) => {
     cy.get('[data-test="add-sub-input"]').type(task)
     cy.get('[data-test="add-sub-button"]').click()
 })
+
+Cypress.Commands.add('deleteItem', (task) => {
+    cy.get(`[data-test="todo-del-${task}"]`).click()
+})
+
+Cypress.Commands.add('deleteSubItem', (task) => {
+    cy.get(`[data-test="sub-del-${task}"]`).click()
+})

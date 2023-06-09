@@ -61,4 +61,14 @@ describe('todo-list', () => {
     // assert
     cy.get('li').should('not.exist')
   })
+
+  it('remove a subtask', () => {
+    cy.addItem(tasks[0])
+    cy.addSubItem(tasks[1])
+
+    cy.deleteSubItem(tasks[1])
+
+    // assert
+    cy.get('li').should('have.length', 1)
+  })
 })

@@ -10,7 +10,7 @@ export default function Todo({ id, title, done, handleDeleteTodo, handleChangeTo
             <input type="checkbox" checked={done} onChange={e => { handleChangeTodo(id, 'done', e.target.checked) }} data-test={`todo-check-${title}`} />
             <input type="text" value={title} disabled={true} data-test={`todo-val-${title}`}/>
             {/* <span>{todo.title}</span> */}
-            <button type='button' onClick={() => handleDeleteTodo(id)}>Delete</button>
+            <button type='button' onClick={() => handleDeleteTodo(id)} data-test={`todo-del-${title}`}>Delete</button>
             <ul>
                 {subTasks.map(subTask => (
                     <li key={subTask.id}>
